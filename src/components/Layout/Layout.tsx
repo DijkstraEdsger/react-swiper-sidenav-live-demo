@@ -29,57 +29,49 @@ const CustomDiv = ({ children, ...props }: CustomDivProps) => {
 
 type CustomLinkProps = {
   to: string;
-  children: React.JSX.Element;
+  name?: string;
 };
 
-const MyCustomLink = ({ to, children }: CustomLinkProps) => {
-  return (
-    <div>
-      <Link
-        to={to}
-        style={{
-          backgroundColor: "red",
-        }}
-      >
-        {children}
-      </Link>
-    </div>
-  );
+const MyCustomLink = ({ to, name }: CustomLinkProps) => {
+  return <Link to={to}>{name}</Link>;
 };
 
 const items: NavItems = {
   name: "Main menu",
   childrenItems: [
-    // {
-    //   name: "Colors",
-    //   childrenItems: [
-    //     {
-    //       name: "Red",
-    //       childrenItems: [
-    //         {
-    //           name: "Red 1",
-    //           itemProps: {
-    //             to: "/red1",
-    //           },
-    //         },
-    //         {
-    //           name: "Red 2",
-    //           itemProps: {
-    //             to: "/red2",
-    //           },
-    //         },
-    //       ],
-    //     },
-    //     {
-    //       name: "Green",
-    //       childrenItems: [{ name: "Green 1" }, { name: "Green 2" }],
-    //     },
-    //     {
-    //       name: "Blue",
-    //       childrenItems: [{ name: "Blue 1" }, { name: "Blue 2" }],
-    //     },
-    //   ],
-    // },
+    {
+      name: "Colors",
+      childrenItems: [
+        {
+          name: "Red",
+          childrenItems: [
+            {
+              // name: "Red 1",
+              itemProps: {
+                to: "/red1",
+                name: "Red 1",
+                // href: "/red1",
+                // children: "Red 1.1",
+              },
+            },
+            {
+              name: "Red 2",
+              itemProps: {
+                to: "/red2",
+              },
+            },
+          ],
+        },
+        {
+          name: "Green",
+          childrenItems: [{ name: "Green 1" }, { name: "Green 2" }],
+        },
+        {
+          name: "Blue",
+          childrenItems: [{ name: "Blue 1" }, { name: "Blue 2" }],
+        },
+      ],
+    },
     {
       name: "Foo",
       // renderItem: <Link to="/contact">Foo</Link>,
@@ -339,6 +331,8 @@ const Layout = () => {
   });
 
   const closeSidenavHandler = () => {
+    console.log("closeSidenavHandler");
+    
     setState((prevState) => ({
       ...prevState,
       openSidenav: false,
