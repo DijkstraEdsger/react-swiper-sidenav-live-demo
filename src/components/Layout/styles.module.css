@@ -1,0 +1,115 @@
+.colors {
+  background-color: dimgray;
+}
+
+.colors_back {
+  color: white;
+  transition: all 0.2s;
+}
+
+.colors_back:hover {
+  background-color: white;
+  color: black;
+  box-shadow: 2px 2px 30px black inset;
+  transition: all 0.2s;
+}
+
+.color_head {
+  color: white;
+}
+
+.colors_first {
+  background-color: #00bcd4;
+}
+
+.link_button {
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.link_button:hover {
+  box-shadow: 2px 2px 30px black inset;
+  border-radius: 30px;
+  transition: all 0.2s ease-in-out;
+}
+
+.color_button {
+  color: white;
+  transition: box-shadow 0.2s;
+}
+
+.color_button:hover {
+  box-shadow: 8px 8px 40px black inset;
+  transition: box-shadow 0.2s;
+}
+
+.color_button::after {
+  border-left-color: #fff;
+}
+
+.color_red {
+  background-color: #ff0000;
+}
+
+.color_green {
+  background-color: #00ff00;
+}
+
+.color_blue {
+  background-color: #0000ff;
+}
+
+.color_red_container {
+  background-color: #ff0000;
+}
+
+.color_red_head {
+  color: white;
+}
+
+.color_head {
+  color: white;
+}
+
+.lakes_container {
+  background-image: url(../../../public/lake.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.lakes_head {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.link_lake {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease-in-out;
+}
+
+.link_lake:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: all 0.2s ease-in-out;
+}
+
+.bg_dark {
+  background-color: #333;
+}
+
+.dark_button {
+  color: rgb(212, 209, 209);
+  transition: all 0.2s ease-in-out;
+}
+
+.dark_button:hover {
+  color: #fff;
+  background-color: transparent;
+  text-shadow: 1px 1px 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.dark_header {
+  color: rgb(212, 209, 209);
+}
