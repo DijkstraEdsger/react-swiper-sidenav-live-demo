@@ -1,13 +1,102 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+  color: #008000;
+}
+
+.main {
+  flex-grow: 1;
+  padding: 16px;
+}
+
+.main > fieldset {
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 300px;
+}
+
+.main > fieldset > legend {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.primaryButton {
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.primaryButton:hover {
+  background-color: #106ebe;
+}
+
+.sideNavHead {
+  background-color: #0078d4;
+  color: white;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.close-button span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: black;
+  transform: rotate(45deg);
+  position: relative;
+}
+
+.close-button span::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: black;
+  transform: rotate(90deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+pre {
+  font-family: “Courier New”, monospace;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.flex {
+  display: flex;
 }

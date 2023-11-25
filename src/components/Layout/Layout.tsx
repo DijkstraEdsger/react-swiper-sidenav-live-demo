@@ -6,38 +6,19 @@ import {
   NavItems,
 } from "react-swiper-sidenav";
 import styles from "./styles.module.css";
-import { useState } from "react";
-
-type CustomDivProps = {
-  children: React.ReactNode;
-};
-
-const ll = (props: any) => <Link to="/">Hello</Link>;
-
-const CustomDiv = ({ children, ...props }: CustomDivProps) => {
-  return (
-    <div
-      style={{
-        backgroundColor: "blue",
-      }}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-};
+import { useReducer } from "react";
 
 type CustomLinkProps = {
   to: string;
-  name?: string;
+  label?: string;
 };
 
-const MyCustomLink = ({ to, name }: CustomLinkProps) => {
-  return <Link to={to}>{name}</Link>;
+const MyCustomLink = ({ to, label }: CustomLinkProps) => {
+  return <Link to={to}>{label}</Link>;
 };
 
 const items: NavItems = {
-  name: "Main menu",
+  name: "Default style",
   childrenItems: [
     {
       name: "Colors",
@@ -46,110 +27,142 @@ const items: NavItems = {
           name: "Red",
           childrenItems: [
             {
-              // name: "Red 1",
               itemProps: {
                 to: "/red1",
-                name: "Red 1",
-                // href: "/red1",
-                // children: "Red 1.1",
+                label: "Red 1",
               },
             },
             {
-              name: "Red 2",
               itemProps: {
                 to: "/red2",
+                label: "Red 2",
               },
             },
           ],
         },
         {
           name: "Green",
-          childrenItems: [{ name: "Green 1" }, { name: "Green 2" }],
+          childrenItems: [
+            {
+              itemProps: {
+                to: "/green1",
+                label: "Green 1",
+              },
+            },
+            {
+              itemProps: {
+                to: "/green2",
+                label: "Green 2",
+              },
+            },
+          ],
         },
         {
           name: "Blue",
-          childrenItems: [{ name: "Blue 1" }, { name: "Blue 2" }],
+          childrenItems: [
+            {
+              itemProps: {
+                to: "/blue1",
+                label: "Blue 1",
+              },
+            },
+            {
+              itemProps: {
+                to: "/blue2",
+                label: "Blue 2",
+              },
+            },
+          ],
         },
       ],
     },
     {
       name: "Foo",
-      // renderItem: <Link to="/contact">Foo</Link>,
       itemProps: {
         to: "/red1",
-        children: "Foo",
+        label: "Foo",
       },
     },
-    // {
-    //   name: "Galaxies",
-    //   childrenItems: [
-    //     {
-    //       name: "Galaxy 1",
-    //     },
-    //     {
-    //       name: "Galaxy 2",
-    //     },
-    //     {
-    //       name: "Galaxy 3",
-    //     },
-    //   ],
-    // },
-    // {
-    //   name: "Shape",
-    //   childrenItems: [
-    //     {
-    //       name: "2d",
-    //       childrenItems: [
-    //         {
-    //           name: "▲ Triangle",
-    //         },
-    //         {
-    //           name: "■ Square",
-    //         },
-    //       ],
-    //     },
-    //     {
-    //       name: "3d",
-    //       renderItem: <CustomDiv>3D</CustomDiv>,
-    //       childrenItems: [
-    //         { name: "Sphere" },
-    //         { name: "Pyramid" },
-    //         {
-    //           renderItem: <MyCustomLink to={"/go"}>Go to view...</MyCustomLink>,
-    //         },
-    //       ],
-    //     },
-    //   ],
-    // },
-    // {
-    //   disableClose: true,
-    //   renderItem: (
-    //     <div>
-    //       <label htmlFor="input-field">Enter text:</label>
-    //       <input type="text" id="input-field" placeholder="Type here" />
-    //       <br />
-    //       <button type="button" onClick={() => console.log("here")}>
-    //         Submit
-    //       </button>
-    //     </div>
-    //   ),
-    // },
+    {
+      name: "Galaxies",
+      childrenItems: [
+        {
+          itemProps: {
+            to: "/galaxy1",
+            label: "Galaxy 1",
+          },
+        },
+        {
+          itemProps: {
+            to: "/galaxy2",
+            label: "Galaxy 2",
+          },
+        },
+        {
+          itemProps: {
+            to: "/galaxy3",
+            label: "Galaxy 3",
+          },
+        },
+      ],
+    },
+    {
+      name: "Shape",
+      childrenItems: [
+        {
+          name: "2d",
+          childrenItems: [
+            {
+              itemProps: {
+                to: "/triangle",
+                label: "▲ Triangle",
+              },
+            },
+            {
+              itemProps: {
+                to: "/square",
+                label: "■ Square",
+              },
+            },
+            {
+              itemProps: {
+                to: "/circle",
+                label: "○ Circle",
+              },
+            },
+          ],
+        },
+        {
+          name: "3d",
+          childrenItems: [
+            {
+              itemProps: {
+                to: "/pyramid",
+                label: "Pyramid",
+              },
+            },
+            {
+              itemProps: {
+                to: "/cube",
+                label: "Cube",
+              },
+            },
+            {
+              itemProps: {
+                to: "/sphere",
+                label: "Sphere",
+              },
+            },
+          ],
+        },
+      ],
+    },
   ],
 };
 
-const navItemsStyles = () => {
-  let styleLinkButon = {
-    color: "white",
-    ":hover": {
-      backgroundColor: "white",
-      color: "black",
-      boxShadow: "2px 2px 30px black inset",
-    },
-  };
-
+const navItemsMultiStyles = (): NavItems => {
   return {
-    name: "Main menu",
-    frt: "gh",
+    name: "Multi styles",
     classes: {
       container: styles.colors_first,
     },
@@ -168,10 +181,16 @@ const navItemsStyles = () => {
             childrenItems: [
               {
                 disableClose: true,
-                name: "Red 1 (disabled close)",
+                itemProps: {
+                  to: "/red1",
+                  label: "Red 1",
+                },
               },
               {
-                name: "Red 2",
+                itemProps: {
+                  to: "/red2",
+                  label: "Red 2",
+                },
               },
             ],
             className: styles.color_red,
@@ -187,10 +206,16 @@ const navItemsStyles = () => {
             className: styles.color_green,
             childrenItems: [
               {
-                name: "Green 1",
+                itemProps: {
+                  to: "/green1",
+                  label: "Green 1",
+                },
               },
               {
-                name: "Green 2",
+                itemProps: {
+                  to: "/green2",
+                  label: "Green 2",
+                },
               },
             ],
             classes: {
@@ -205,11 +230,16 @@ const navItemsStyles = () => {
             className: styles.color_blue,
             childrenItems: [
               {
-                name: "Blue 1",
+                itemProps: {
+                  to: "/blue1",
+                  label: "Blue 1",
+                },
               },
               {
-                name: "Blue 2",
-                style: styleLinkButon,
+                itemProps: {
+                  to: "/blue2",
+                  label: "Blue 2",
+                },
               },
             ],
             classes: {
@@ -233,10 +263,22 @@ const navItemsStyles = () => {
         },
         childrenItems: [
           {
-            name: "Lake 1",
+            itemProps: {
+              to: "/lake1",
+              label: "Lake 1",
+            },
           },
           {
-            name: "Lake 2",
+            itemProps: {
+              to: "/lake2",
+              label: "Lake 2",
+            },
+          },
+          {
+            itemProps: {
+              to: "/lake3",
+              label: "Lake 3",
+            },
           },
         ],
       },
@@ -244,9 +286,9 @@ const navItemsStyles = () => {
   };
 };
 
-const navItemsDarkTransparent = () => {
+const navItemsDark = (): NavItems => {
   return {
-    name: "Main menu",
+    name: "Dark style",
     classes: {
       container: styles.bg_dark,
       back: styles.dark_button,
@@ -261,10 +303,16 @@ const navItemsDarkTransparent = () => {
             name: "Red",
             childrenItems: [
               {
-                name: "Red 1",
+                itemProps: {
+                  to: "/red1",
+                  label: "Red 1",
+                },
               },
               {
-                name: "Red 2",
+                itemProps: {
+                  to: "/red2",
+                  label: "Red 2",
+                },
               },
             ],
           },
@@ -272,10 +320,16 @@ const navItemsDarkTransparent = () => {
             name: "Green",
             childrenItems: [
               {
-                name: "Green 1",
+                itemProps: {
+                  to: "/green1",
+                  label: "Green 1",
+                },
               },
               {
-                name: "Green 2",
+                itemProps: {
+                  to: "/green2",
+                  label: "Green 2",
+                },
               },
             ],
           },
@@ -283,29 +337,47 @@ const navItemsDarkTransparent = () => {
             name: "Blue",
             childrenItems: [
               {
-                name: "Blue 1",
+                itemProps: {
+                  to: "/blue1",
+                  label: "Blue 1",
+                },
               },
               {
-                name: "Blue 2",
+                itemProps: {
+                  to: "/blue2",
+                  label: "Blue 2",
+                },
               },
             ],
           },
         ],
       },
       {
-        name: "Foo",
+        itemProps: {
+          to: "/foo",
+          label: "Foo",
+        },
       },
       {
         name: "Galaxies",
         childrenItems: [
           {
-            name: "Galaxy 1",
+            itemProps: {
+              to: "/galaxy1",
+              label: "Galaxy 1",
+            },
           },
           {
-            name: "Galaxy 2",
+            itemProps: {
+              to: "/galaxy2",
+              label: "Galaxy 2",
+            },
           },
           {
-            name: "Galaxy 3",
+            itemProps: {
+              to: "/galaxy3",
+              label: "Galaxy 3",
+            },
           },
         ],
       },
@@ -313,53 +385,272 @@ const navItemsDarkTransparent = () => {
   };
 };
 
-const Layout = () => {
-  const [state, setState] = useState({
-    openSidenav: true,
-    navItems: items,
-    // navItems: navItemsStyles(),
-    // navItems: navItemsDarkTransparent(),
-    radioButton: [
-      { value: "Default", name: "sidenav", displayValue: "Default" },
-      { value: "MultiStyles", name: "sidenav", displayValue: "MultiStyles" },
-      {
-        value: "DarkTransparent",
-        name: "sidenav",
-        displayValue: "Dark Transparent",
-      },
-    ],
-  });
+type State = {
+  navItems: NavItems;
+  open: boolean;
+  placement: "left" | "right";
+  hideBackdrop: boolean;
+  variant: Variant;
+  style: React.CSSProperties;
+  spreadCssClasses: boolean;
+  renderLink: any;
+  navProps: ISideNavProps["navProps"];
+};
 
-  const closeSidenavHandler = () => {
-    console.log("closeSidenavHandler");
-    
-    setState((prevState) => ({
-      ...prevState,
-      openSidenav: false,
-    }));
+const initialState: State = {
+  navItems: items,
+  open: false,
+  placement: "left",
+  hideBackdrop: false,
+  variant: "temporary",
+  style: {
+    // width: "300px",
+    // borderRadius: "0 32px 32px 0",
+  },
+  spreadCssClasses: true,
+  renderLink: MyCustomLink,
+  navProps: {
+    "aria-label": "main menu",
+  },
+};
+
+const reducer = (state: any, action: any) => {
+  const { type, payload } = action;
+  console.log(type, payload);
+
+  switch (type) {
+    case "navItems":
+      return {
+        ...state,
+        navItems: payload,
+      };
+    case "open":
+      return {
+        ...state,
+        open: payload,
+      };
+    case "placement":
+      return {
+        ...state,
+        placement: payload,
+      };
+    case "hideBackdrop":
+      return {
+        ...state,
+        hideBackdrop: payload,
+      };
+    case "variant":
+      return {
+        ...state,
+        variant: payload,
+      };
+    case "style":
+      return {
+        ...state,
+        style: payload,
+      };
+    case "spreadCssClasses":
+      return {
+        ...state,
+        spreadCssClasses: payload,
+      };
+    case "renderLink":
+      return {
+        ...state,
+        renderLink: payload,
+      };
+    default:
+      return state;
+  }
+};
+
+const Layout = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const action = (type: string, payload: any) => {
+    dispatch({ type, payload });
   };
 
-  const variant: Variant = "persistent";
+  const closeSidenavHandler = () => {
+    action("open", false);
+  };
+
+  const onChangeHandler = (e: any) => {
+    const { name, value } = e.target;
+    action(name, value);
+  };
+
+  const onChangeStyleHandler = (value: React.CSSProperties) => {
+    const { style } = state;
+    let newStyle = {};
+
+    if (Object.keys(style).length > 0) {
+      newStyle = {};
+    } else {
+      newStyle = { ...value };
+    }
+    action("style", { ...newStyle });
+  };
 
   return (
     <>
       <SideNav
         navItems={state.navItems}
-        open={state.openSidenav}
+        open={state.open}
         onClose={closeSidenavHandler}
-        placement="left"
+        placement={state.placement}
         zIndex={800}
-        hideBackdrop
-        // variant="persistent"
-        // variant="permanent"
-        navProps={{
-          "aria-label": "main menu",
-        }}
-        variant={variant}
-        renderLink={MyCustomLink}
+        hideBackdrop={state.hideBackdrop}
+        navProps={state.navProps}
+        variant={state.variant}
+        renderLink={state.renderLink}
+        style={state.style}
       >
-        <h2>Side Nav</h2>
+        <div className="sideNavHead">
+          <h2>Side Nav</h2>
+          <button
+            type="button"
+            className="close-button"
+            onClick={() => action("open", !state.open)}
+            aria-label="toggle sidenav"
+          >
+            <span></span>
+          </button>
+        </div>
       </SideNav>
+      <section className="main">
+        <fieldset>
+          <legend>Nav items</legend>
+          <label>
+            <input
+              type="radio"
+              name="navItems"
+              checked={state.navItems.name === "Default style"}
+              onChange={() => action("navItems", items)}
+            />
+            Default style
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="navItems"
+              checked={state.navItems.name === "Multi styles"}
+              onChange={() => action("navItems", navItemsMultiStyles())}
+            />
+            Multi styles
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="navItems"
+              checked={state.navItems.name === "Dark style"}
+              onChange={() => action("navItems", navItemsDark())}
+            />
+            Dark style
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>Open/Close</legend>
+          <button
+            type="button"
+            className="primaryButton"
+            onClick={() => action("open", !state.open)}
+          >
+            {state.open ? "Close" : "Open"}
+          </button>
+        </fieldset>
+        <fieldset>
+          <legend>Placement</legend>
+          <label>
+            <input
+              type="radio"
+              name="placement"
+              value="left"
+              checked={state.placement === "left"}
+              onChange={onChangeHandler}
+            />
+            Left
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="placement"
+              value="right"
+              checked={state.placement === "right"}
+              onChange={onChangeHandler}
+            />
+            Right
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>Hide backdrop</legend>
+          <label>
+            <input
+              type="checkbox"
+              name="hideBackdrop"
+              checked={state.hideBackdrop}
+              onChange={() => action("hideBackdrop", !state.hideBackdrop)}
+            />
+            Hide backdrop
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>Variant</legend>
+          <label>
+            <input
+              type="radio"
+              name="variant"
+              value="temporary"
+              checked={state.variant === "temporary"}
+              onChange={onChangeHandler}
+            />
+            Temporary
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="variant"
+              value="permanent"
+              checked={state.variant === "permanent"}
+              onChange={onChangeHandler}
+            />
+            Permanent
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>SideNav styles example</legend>
+          <label className="flex">
+            <input
+              type="radio"
+              name="style"
+              checked={Object.keys(state.style).length === 0}
+              onChange={() => onChangeStyleHandler({})}
+            />
+            <pre>
+              <code>None</code>{" "}
+            </pre>
+          </label>
+          <label className="flex">
+            <input
+              type="radio"
+              name="style"
+              checked={Object.keys(state.style).length > 0}
+              onChange={() =>
+                onChangeStyleHandler({
+                  width: "300px",
+                  borderRadius: "0 32px 32px 0",
+                })
+              }
+            />
+            <pre>
+              <code>
+                width: 300px; <br />
+                border-radius: 0 32px 32px 0;
+              </code>{" "}
+            </pre>
+          </label>
+        </fieldset>
+      </section>
 
       <Outlet />
     </>

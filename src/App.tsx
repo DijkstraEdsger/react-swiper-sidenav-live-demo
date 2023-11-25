@@ -11,7 +11,12 @@ import Red from "pages/Red/Red";
 
 function App() {
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{
+        display: "flex",
+      }}
+    >
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
