@@ -5,8 +5,10 @@ import {
   Variant,
   NavItems,
 } from "react-swiper-sidenav";
-import styles from "./styles.module.css";
 import { useReducer } from "react";
+import { menuItems } from "mock/Sidenav/menu-items/menu-items";
+import { menuItemsMultiStyles } from "mock/Sidenav/menu-items-multi-styles/menu-items-multi-styles";
+import { menuItemsDark } from "mock/Sidenav/menu-items-dark/menu-items-dark";
 
 type CustomLinkProps = {
   to: string;
@@ -15,347 +17,6 @@ type CustomLinkProps = {
 
 const MyCustomLink = ({ to, label }: CustomLinkProps) => {
   return <Link to={to}>{label}</Link>;
-};
-
-const items: NavItems = {
-  name: "Default style",
-  childrenItems: [
-    {
-      name: "Computers",
-      childrenItems: [
-        {
-          name: "Desktops",
-          childrenItems: [
-            {
-              itemProps: {
-                to: "/gaming",
-                label: "Gaming",
-              },
-            },
-            {
-              itemProps: {
-                to: "/workstations",
-                label: "Workstations",
-              },
-            },
-            {
-              itemProps: {
-                to: "/all-in-one",
-                label: "All-in-One",
-              },
-            },
-          ],
-        },
-        {
-          name: "Laptops",
-          childrenItems: [
-            {
-              itemProps: {
-                to: "/ultrabooks",
-                label: "Ultrabooks",
-              },
-            },
-            {
-              itemProps: {
-                to: "/convertibles",
-                label: "Convertibles",
-              },
-            },
-            {
-              itemProps: {
-                to: "/lgaming",
-                label: "Gaming",
-              },
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: "Foo",
-      itemProps: {
-        to: "/red1",
-        label: "Foo",
-      },
-    },
-
-    {
-      name: "Accessories",
-      childrenItems: [
-        {
-          name: "Keyboards",
-          childrenItems: [
-            {
-              itemProps: {
-                to: "/mechanical",
-                label: "Mechanical",
-              },
-            },
-            {
-              itemProps: {
-                to: "/wireless",
-                label: "Wireless",
-              },
-            },
-            {
-              itemProps: {
-                to: "/kgaming",
-                label: "Gaming",
-              },
-            },
-          ],
-        },
-        {
-          name: "Mice",
-          childrenItems: [
-            {
-              itemProps: {
-                to: "/mwireless",
-                label: "Wireless",
-              },
-            },
-            {
-              itemProps: {
-                to: "/mgaming",
-                label: "Gaming",
-              },
-            },
-            {
-              itemProps: {
-                to: "/ergonomic",
-                label: "Ergonomic",
-              },
-            },
-          ],
-        },
-      ],
-    },
-  ],
-};
-
-const navItemsMultiStyles = (): NavItems => {
-  return {
-    name: "Multi styles",
-    classes: {
-      container: styles.colors_first,
-    },
-    childrenItems: [
-      {
-        name: "Colors",
-        classes: {
-          container: styles.colors,
-          back: styles.colors_back,
-          head: styles.color_head,
-          items: styles.color_button,
-        },
-        childrenItems: [
-          {
-            name: "Red",
-            childrenItems: [
-              {
-                disableClose: true,
-                itemProps: {
-                  to: "/red1",
-                  label: "Red 1",
-                },
-              },
-              {
-                itemProps: {
-                  to: "/red2",
-                  label: "Red 2",
-                },
-              },
-            ],
-            className: styles.color_red,
-            classes: {
-              container: styles.color_red_container,
-              back: styles.colors_back,
-              head: styles.color_head,
-              items: styles.link_button,
-            },
-          },
-          {
-            name: "Green",
-            className: styles.color_green,
-            childrenItems: [
-              {
-                itemProps: {
-                  to: "/green1",
-                  label: "Green 1",
-                },
-              },
-              {
-                itemProps: {
-                  to: "/green2",
-                  label: "Green 2",
-                },
-              },
-            ],
-            classes: {
-              container: styles.color_green,
-              back: styles.colors_back,
-              head: styles.color_head,
-              items: styles.link_button,
-            },
-          },
-          {
-            name: "Blue",
-            className: styles.color_blue,
-            childrenItems: [
-              {
-                itemProps: {
-                  to: "/blue1",
-                  label: "Blue 1",
-                },
-              },
-              {
-                itemProps: {
-                  to: "/blue2",
-                  label: "Blue 2",
-                },
-              },
-            ],
-            classes: {
-              container: styles.color_blue,
-              back: styles.colors_back,
-              head: styles.color_head,
-              items: styles.link_button,
-            },
-          },
-        ],
-      },
-      {
-        renderItem: <a style={{ color: "white" }}>Other</a>,
-      },
-      {
-        name: "Lakes",
-        classes: {
-          container: styles.lakes_container,
-          head: styles.lakes_head,
-          items: styles.link_lake,
-        },
-        childrenItems: [
-          {
-            itemProps: {
-              to: "/lake1",
-              label: "Lake 1",
-            },
-          },
-          {
-            itemProps: {
-              to: "/lake2",
-              label: "Lake 2",
-            },
-          },
-          {
-            itemProps: {
-              to: "/lake3",
-              label: "Lake 3",
-            },
-          },
-        ],
-      },
-    ],
-  };
-};
-
-const navItemsDark = (): NavItems => {
-  return {
-    name: "Dark style",
-    classes: {
-      container: styles.bg_dark,
-      back: styles.dark_button,
-      head: styles.dark_header,
-      items: styles.dark_button,
-    },
-    childrenItems: [
-      {
-        name: "Colors",
-        childrenItems: [
-          {
-            name: "Red",
-            childrenItems: [
-              {
-                itemProps: {
-                  to: "/red1",
-                  label: "Red 1",
-                },
-              },
-              {
-                itemProps: {
-                  to: "/red2",
-                  label: "Red 2",
-                },
-              },
-            ],
-          },
-          {
-            name: "Green",
-            childrenItems: [
-              {
-                itemProps: {
-                  to: "/green1",
-                  label: "Green 1",
-                },
-              },
-              {
-                itemProps: {
-                  to: "/green2",
-                  label: "Green 2",
-                },
-              },
-            ],
-          },
-          {
-            name: "Blue",
-            childrenItems: [
-              {
-                itemProps: {
-                  to: "/blue1",
-                  label: "Blue 1",
-                },
-              },
-              {
-                itemProps: {
-                  to: "/blue2",
-                  label: "Blue 2",
-                },
-              },
-            ],
-          },
-        ],
-      },
-      {
-        itemProps: {
-          to: "/foo",
-          label: "Foo",
-        },
-      },
-      {
-        name: "Galaxies",
-        childrenItems: [
-          {
-            itemProps: {
-              to: "/galaxy1",
-              label: "Galaxy 1",
-            },
-          },
-          {
-            itemProps: {
-              to: "/galaxy2",
-              label: "Galaxy 2",
-            },
-          },
-          {
-            itemProps: {
-              to: "/galaxy3",
-              label: "Galaxy 3",
-            },
-          },
-        ],
-      },
-    ],
-  };
 };
 
 type State = {
@@ -371,15 +32,12 @@ type State = {
 };
 
 const initialState: State = {
-  navItems: items,
+  navItems: menuItems,
   open: false,
   placement: "left",
   hideBackdrop: false,
   variant: "temporary",
-  style: {
-    // width: "300px",
-    // borderRadius: "0 32px 32px 0",
-  },
+  style: {},
   spreadCssClasses: true,
   renderLink: MyCustomLink,
   navProps: {
@@ -498,8 +156,8 @@ const Layout = () => {
             <input
               type="radio"
               name="navItems"
-              checked={state.navItems.name === "Default style"}
-              onChange={() => action("navItems", items)}
+              checked={state.navItems.name === "Main (Default style)"}
+              onChange={() => action("navItems", menuItems)}
             />
             Default style
           </label>
@@ -507,19 +165,19 @@ const Layout = () => {
             <input
               type="radio"
               name="navItems"
-              checked={state.navItems.name === "Multi styles"}
-              onChange={() => action("navItems", navItemsMultiStyles())}
+              checked={state.navItems.name === "Main (Dark style)"}
+              onChange={() => action("navItems", menuItemsDark)}
             />
-            Multi styles
+            Dark style
           </label>
           <label>
             <input
               type="radio"
               name="navItems"
-              checked={state.navItems.name === "Dark style"}
-              onChange={() => action("navItems", navItemsDark())}
+              checked={state.navItems.name === "Main (Multi styles)"}
+              onChange={() => action("navItems", menuItemsMultiStyles)}
             />
-            Dark style
+            Multi styles
           </label>
         </fieldset>
         <fieldset>
