@@ -21,55 +21,50 @@ const items: NavItems = {
   name: "Default style",
   childrenItems: [
     {
-      name: "Colors",
+      name: "Computers",
       childrenItems: [
         {
-          name: "Red",
+          name: "Desktops",
           childrenItems: [
             {
               itemProps: {
-                to: "/red1",
-                label: "Red 1",
+                to: "/gaming",
+                label: "Gaming",
               },
             },
             {
               itemProps: {
-                to: "/red2",
-                label: "Red 2",
+                to: "/workstations",
+                label: "Workstations",
+              },
+            },
+            {
+              itemProps: {
+                to: "/all-in-one",
+                label: "All-in-One",
               },
             },
           ],
         },
         {
-          name: "Green",
+          name: "Laptops",
           childrenItems: [
             {
               itemProps: {
-                to: "/green1",
-                label: "Green 1",
+                to: "/ultrabooks",
+                label: "Ultrabooks",
               },
             },
             {
               itemProps: {
-                to: "/green2",
-                label: "Green 2",
-              },
-            },
-          ],
-        },
-        {
-          name: "Blue",
-          childrenItems: [
-            {
-              itemProps: {
-                to: "/blue1",
-                label: "Blue 1",
+                to: "/convertibles",
+                label: "Convertibles",
               },
             },
             {
               itemProps: {
-                to: "/blue2",
-                label: "Blue 2",
+                to: "/lgaming",
+                label: "Gaming",
               },
             },
           ],
@@ -83,74 +78,52 @@ const items: NavItems = {
         label: "Foo",
       },
     },
+
     {
-      name: "Galaxies",
+      name: "Accessories",
       childrenItems: [
         {
-          itemProps: {
-            to: "/galaxy1",
-            label: "Galaxy 1",
-          },
-        },
-        {
-          itemProps: {
-            to: "/galaxy2",
-            label: "Galaxy 2",
-          },
-        },
-        {
-          itemProps: {
-            to: "/galaxy3",
-            label: "Galaxy 3",
-          },
-        },
-      ],
-    },
-    {
-      name: "Shape",
-      childrenItems: [
-        {
-          name: "2d",
+          name: "Keyboards",
           childrenItems: [
             {
               itemProps: {
-                to: "/triangle",
-                label: "▲ Triangle",
+                to: "/mechanical",
+                label: "Mechanical",
               },
             },
             {
               itemProps: {
-                to: "/square",
-                label: "■ Square",
+                to: "/wireless",
+                label: "Wireless",
               },
             },
             {
               itemProps: {
-                to: "/circle",
-                label: "○ Circle",
+                to: "/kgaming",
+                label: "Gaming",
               },
             },
           ],
         },
         {
-          name: "3d",
+          name: "Mice",
           childrenItems: [
             {
               itemProps: {
-                to: "/pyramid",
-                label: "Pyramid",
+                to: "/mwireless",
+                label: "Wireless",
               },
             },
             {
               itemProps: {
-                to: "/cube",
-                label: "Cube",
+                to: "/mgaming",
+                label: "Gaming",
               },
             },
             {
               itemProps: {
-                to: "/sphere",
-                label: "Sphere",
+                to: "/ergonomic",
+                label: "Ergonomic",
               },
             },
           ],
