@@ -1,13 +1,12 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "components/Layout/Layout";
 import Home from "pages/Home/Home";
-import Blogs from "pages/Blogs/Blogs";
+import Ultrabooks from "pages/Ultrabooks/Ultrabooks";
 import Contact from "pages/Contact/Contact";
 import NoPage from "pages/NoPage/NoPage";
-import Red from "pages/Red/Red";
+import Gaming from "pages/Gaming/Gaming";
 
 function App() {
   return (
@@ -21,9 +20,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="blogs" element={<Blogs />} />
+            <Route path="ultrabooks" element={<Ultrabooks />} />
             <Route path="contact" element={<Contact />} />
-            <Route path="red1" element={<Red />} />
+            <Route path="gaming" element={<Gaming />} />
             <Route path="*" element={<NoPage />}></Route>
           </Route>
         </Routes>
