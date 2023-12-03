@@ -1,0 +1,19 @@
+.bg_dark {
+  background-color: #333;
+}
+
+.dark_button {
+  color: rgb(212, 209, 209);
+  transition: all 0.2s ease-in-out;
+}
+
+.dark_button:hover {
+  color: #fff;
+  background-color: transparent;
+  text-shadow: 1px 1px 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.dark_header {
+  color: rgb(212, 209, 209);
+}

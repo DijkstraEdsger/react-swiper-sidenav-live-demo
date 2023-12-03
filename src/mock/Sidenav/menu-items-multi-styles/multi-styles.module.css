@@ -1,0 +1,82 @@
+.electronics {
+  background-color: #4b0082;
+  color: white;
+}
+
+.computers {
+  background-color: #808080;
+}
+
+.desktops {
+  background-color: #696969;
+}
+
+.laptops {
+  background-color: #a9a9a9;
+}
+
+.accessories {
+  background-color: #000000;
+  color: white;
+}
+
+.keyboards {
+  background-color: #ffffff;
+  color: black;
+}
+
+.mice {
+  background-color: #c0c0c0;
+}
+
+.gaming {
+  background-color: #ff0000;
+  color: white;
+}
+
+.ergonomic {
+  background-color: #0000ff;
+  color: white;
+}
+
+.workstations {
+  background-color: #ffff00;
+  color: black;
+}
+
+.all_in_one {
+  background-color: #800080;
+  color: white;
+}
+
+.ultrabooks {
+  background-color: #ffa500;
+  color: black;
+}
+
+.convertibles {
+  background-color: #00ffff;
+  color: black;
+}
+
+.mechanical {
+  background-color: #800000;
+  color: white;
+}
+
+.wireless {
+  background-color: #008000;
+  color: white;
+}
+
+.accessories_back {
+  background-color: #000000;
+  color: white;
+}
+
+.accessories_back:hover {
+  background-color: #ffffff;
+  color: black;
+  box-shadow: 2px 2px 30px black inset;
+  transition: all 0.2s;
+}
