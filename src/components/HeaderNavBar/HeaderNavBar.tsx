@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 type HeaderNavBarProps = {
   openSidenav: () => void;
 };
@@ -5,7 +7,9 @@ type HeaderNavBarProps = {
 const HeaderNavBar = ({ openSidenav }: HeaderNavBarProps) => {
   return (
     <header className="header-nav-bar">
-      HeaderNavBar
+      <Link to="/" className="logo">
+        HeaderNavBar
+      </Link>
       <button type="button" className="primaryButton" onClick={openSidenav}>
         Open
       </button>

@@ -5,7 +5,6 @@ const Home = () => {
     <div>
       <h1>Home</h1>
 
-      {/* put here a lot of text in order to scroll down */}
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut nunc
         vitae nibh aliquam consequat. Nullam et nisl vitae nisl bibendum
