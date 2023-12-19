@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { SideNav } from "react-swiper-sidenav";
-import { menuItems } from "mock/Sidenav/menu-items/menu-items";
+import { useDataContext } from "contexts/DataContext";
 
 type CustomLinkProps = {
   to: string;
@@ -17,9 +17,11 @@ type NavProps = {
 };
 
 const Drawer = ({ open, onClose }: NavProps) => {
+  const { items } = useDataContext();
+
   return (
     <SideNav
-      navItems={menuItems}
+      navItems={items}
       open={open}
       onClose={onClose}
       navProps={{

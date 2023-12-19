@@ -7,6 +7,7 @@ import Ultrabooks from "pages/Ultrabooks/Ultrabooks";
 import Contact from "pages/Contact/Contact";
 import NoPage from "pages/NoPage/NoPage";
 import Gaming from "pages/Gaming/Gaming";
+import { DataProvider } from "contexts/DataContext";
 
 function App() {
   return (
@@ -16,17 +17,19 @@ function App() {
         display: "flex",
       }}
     >
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="ultrabooks" element={<Ultrabooks />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="gaming" element={<Gaming />} />
-            <Route path="*" element={<NoPage />}></Route>
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <DataProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="ultrabooks" element={<Ultrabooks />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="gaming" element={<Gaming />} />
+              <Route path="*" element={<NoPage />}></Route>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </DataProvider>
     </div>
   );
 }
